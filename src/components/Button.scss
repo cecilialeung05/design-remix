@@ -1,0 +1,46 @@
+// components/Button.scss
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  
+    &--primary {
+      background-color: #007bff;
+      color: white;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  
+    &--secondary {
+      background-color: #6c757d;
+      color: white;
+  
+      &:hover {
+        background-color: #545b62;
+      }
+    }
+  
+    &--ghost {
+      background-color: transparent;
+      color: #343a40;
+      border: none;
+  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+    &--outline {
+      background-color: transparent;
+      color: #343a40;
+      border: 1px solid #343a40;
+  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }

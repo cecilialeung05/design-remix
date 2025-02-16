@@ -1,0 +1,125 @@
+// App.scss
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.app-header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+
+  .app-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .app-header-title {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .app-header-nav {
+    display: flex;
+
+    button {
+      margin-left: 10px;
+    }
+  }
+}
+
+.app-main {
+  display: flex;
+  flex-grow: 1;
+
+  .app-sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+
+    .app-sidebar-input-area {
+      margin-bottom: 20px;
+
+      > div {
+        margin-bottom: 15px;
+      }
+    }
+
+    .app-sidebar-variations {
+      .app-sidebar-variations-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .app-sidebar-variations-buttons {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  .app-content {
+    flex-grow: 1;
+    padding: 20px;
+
+    .tab-content {
+      padding: 15px;
+
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+
+        .color-item {
+          text-align: center;
+
+          .color-box {
+            height: 80px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      .typography-section {
+        margin-bottom: 20px;
+      }
+
+      .component-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+
+        .component-item {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.app-footer {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-top: 1px solid #ccc;
+
+  .app-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .app-footer-text {
+    font-size: 14px;
+  }
+}
+
+/* Add more styles as needed */
