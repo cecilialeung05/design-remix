@@ -4,9 +4,10 @@ import Input from "./components/Input";
 import Label from "./components/Label";
 import { Select, SelectItem } from "./components/Select";
 import { Tabs, TabsTrigger, TabsContent } from "./components/Tabs";
-import "./App.scss"; // Import the SCSS file
+import "./App.scss"; 
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 
-// Mock data for design system variations
+
 const mockVariations = [
   { id: 1, name: "Modern Minimalist" },
   { id: 2, name: "Bold and Vibrant" },
@@ -15,13 +16,21 @@ const mockVariations = [
   { id: 5, name: "Corporate Professional" },
 ];
 
-function App() {
+function ThemeToggle() {
+  const { isDark, toggleTheme } = useTheme();
+  return (
+    <Button variant="ghost" onClick={toggleTheme}>
+      {isDark ? '☀️' : '🌙'}
+    </Button>
+  );
+}
+
+function AppContent() {
   const [brandName, setBrandName] = useState("");
   const [theme, setTheme] = useState("");
   const [selectedVariation, setSelectedVariation] = useState(null);
 
   const handleGenerateDesignSystem = () => {
-    // In a real application, this would trigger the design system generation
     console.log(
       "Generating design system for:",
       brandName,
@@ -40,6 +49,7 @@ function App() {
             <Button variant="ghost">Home</Button>
             <Button variant="ghost">About</Button>
             <Button variant="ghost">Contact</Button>
+            <ThemeToggle /> 
           </nav>
         </div>
       </header>
@@ -91,15 +101,15 @@ function App() {
         <div className="app-content">
           <Tabs defaultValue="colors">
             <TabsTrigger value="colors">
-              {/*<Palette className="tab-icon" />*/}
+   
               Colors
             </TabsTrigger>
             <TabsTrigger value="typography">
-              {/*<Type className="tab-icon" />*/}
+
               Typography
             </TabsTrigger>
             <TabsTrigger value="components">
-              {/*<Layers className="tab-icon" />*/}
+
               Components
             </TabsTrigger>
             <TabsContent value="colors" >
@@ -161,12 +171,19 @@ function App() {
             © 2025 AI Design System Explorer. All rights reserved.
           </p>
           <Button>
-            {/*<Download className="tab-icon" />*/}
             Export Design System
           </Button>
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-// components/Input.jsx
+
 import React from 'react';
 import './Input.scss';
 
