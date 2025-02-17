@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import Label from "./components/Label";
-import { Select, SelectItem } from "./components/Select";
+import { Select, SelectItem } from "./components/select";
 import { Tabs, TabsTrigger, TabsContent } from "./components/Tabs";
-import "./App.scss"; // Import the SCSS file
+import "./App.scss"; 
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
+import { BiPalette, BiText, BiHomeAlt, BiInfoCircle, BiUser } from 'react-icons/bi';
+import { HiOutlineSquare3Stack3D } from 'react-icons/hi2';
+import { BiRotateLeft } from 'react-icons/bi';
+import { BiDownload } from 'react-icons/bi';
+import { BiSquare } from 'react-icons/bi';
+import { BiSun, BiMoon } from 'react-icons/bi';
 
-// Mock data for design system variations
 const mockVariations = [
   { id: 1, name: "Modern Minimalist" },
   { id: 2, name: "Bold and Vibrant" },
@@ -15,13 +21,21 @@ const mockVariations = [
   { id: 5, name: "Corporate Professional" },
 ];
 
-function App() {
+function ThemeToggle() {
+  const { isDark, toggleTheme } = useTheme();
+  return (
+    <Button variant="ghost" onClick={toggleTheme}>
+      {isDark ? <BiSun size={16} /> : <BiMoon size={16} />}
+    </Button>
+  );
+}
+
+function AppContent() {
   const [brandName, setBrandName] = useState("");
   const [theme, setTheme] = useState("");
   const [selectedVariation, setSelectedVariation] = useState(null);
 
   const handleGenerateDesignSystem = () => {
-    // In a real application, this would trigger the design system generation
     console.log(
       "Generating design system for:",
       brandName,
@@ -37,10 +51,34 @@ function App() {
         <div className="app-header-content">
           <h1 className="app-header-title">AI Design System Explorer</h1>
           <nav className="app-header-nav">
-            <Button variant="ghost">Home</Button>
-            <Button variant="ghost">About</Button>
-            <Button variant="ghost">Contact</Button>
+            <Button variant="ghost">
+              <BiHomeAlt size={16} />
+              <span>Home</span>
+            </Button>
+            <Button variant="ghost">
+              <BiInfoCircle size={16} />
+              <span>About</span>
+            </Button>
+            <Button variant="ghost">
+              <BiUser size={16} />
+              <span>Contact</span>
+            </Button>
+            <ThemeToggle />
           </nav>
+        </div>
+        <div className="app-header-icons">
+          <Button variant="ghost" className="icon-button">
+            <BiRotateLeft size={16} />
+            <span>Reset</span>
+          </Button>
+          <Button variant="ghost" className="icon-button">
+            <BiDownload size={16} />
+            <span>Download</span>
+          </Button>
+          <Button variant="ghost" className="icon-button">
+            <BiSquare size={16} />
+            <span>Fullscreen</span>
+          </Button>
         </div>
       </header>
       <main className="app-main">
@@ -91,24 +129,35 @@ function App() {
         <div className="app-content">
           <Tabs defaultValue="colors">
             <TabsTrigger value="colors">
-              {/*<Palette className="tab-icon" />*/}
-              Colors
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <BiPalette size={20} />
+                Colors
+              </span>
             </TabsTrigger>
             <TabsTrigger value="typography">
-              {/*<Type className="tab-icon" />*/}
-              Typography
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <BiText size={20} />
+                Typography
+              </span>
             </TabsTrigger>
             <TabsTrigger value="components">
-              {/*<Layers className="tab-icon" />*/}
-              Components
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <HiOutlineSquare3Stack3D size={20} />
+                Components
+              </span>
             </TabsTrigger>
-            <TabsContent value="colors" >
+            <TabsContent value="colors">
               <div className="color-grid">
                 {[...Array(10)].map((_, i) => (
                   <div key={i} className="color-item">
-                    <div className="color-box" />
-                    <p className="color-name">Primary {i + 1}</p>
-                    <p className="color-hex">#HEXCODE</p>
+                    <div className="color-sample-container">
+                      <div className="color-box" style={{ backgroundColor: '#E5E5E5', width: '40%', height: '100%' }} />
+                      <div className="color-inspiration-image" style={{ backgroundColor: '#000000', width: '60%', height: '100%' }} />
+                    </div>
+                    <div className="color-info">
+                      <p className="color-name">Primary {i + 1}</p>
+                      <p className="color-hex">#HEXCODE</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -161,12 +210,19 @@ function App() {
             © 2025 AI Design System Explorer. All rights reserved.
           </p>
           <Button>
-            {/*<Download className="tab-icon" />*/}
             Export Design System
           </Button>
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

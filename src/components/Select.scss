@@ -1,9 +1,9 @@
-// components/Select.scss
+
 
 .select-wrapper {
     position: relative;
     display: inline-block;
-    width: 100%; // Take up the available width
+    width: 100%; 
   }
   
   .select {
@@ -14,12 +14,11 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: white;
-    appearance: none; /* Remove default arrow in some browsers */
-    -webkit-appearance: none; /* For older Safari */
-  
+    appearance: none; 
+    -webkit-appearance: none;
     &:focus {
       outline: none;
-      border-color: #007bff; /* Highlight on focus */
+      border-color: #495a6c; 
       box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
     }
   }
