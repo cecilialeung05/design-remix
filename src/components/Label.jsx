@@ -1,4 +1,4 @@
-// components/Label.jsx
+
 import React from 'react';
 import './Label.scss';
 

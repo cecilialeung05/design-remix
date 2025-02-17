@@ -1,6 +1,6 @@
-// components/Button.jsx
+
 import React from 'react';
-import './Button.scss'; // Import the SCSS module
+import './Button.scss'; 
 
 function Button({ variant = 'primary', children, onClick, className = '', ...props }) {
     let buttonClass = 'button';
@@ -19,7 +19,7 @@ function Button({ variant = 'primary', children, onClick, className = '', ...pro
             buttonClass += ' button--outline';
             break;
         default:
-            buttonClass += ' button--primary'; // Default to primary
+            buttonClass += ' button--primary'; 
             break;
     }
 
