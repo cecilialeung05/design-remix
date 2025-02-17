@@ -29,7 +29,6 @@ function AppContent() {
   const [brandName, setBrandName] = useState("");
   const [theme, setTheme] = useState("");
   const [selectedVariation, setSelectedVariation] = useState(null);
-
   const handleGenerateDesignSystem = () => {
     console.log(
       "Generating design system for:",

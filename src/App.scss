@@ -1,5 +1,6 @@
 
-@import './styles/theme';
+@use './styles/theme' as *;
+
 
 .app-container {
   display: flex;
