@@ -9,7 +9,7 @@
   --card-foreground: #11181C;
   --border: #E6E8EB;
   --input: #E6E8EB;
-  --primary: #0EA5E9;
+  --primary: #000000;
   --primary-foreground: #ffffff;
   --secondary: #F1F3F5;
   --secondary-foreground: #11181C;
@@ -17,7 +17,7 @@
   --accent-foreground: #11181C;
   --destructive: #FF0000;
   --destructive-foreground: #ffffff;
-  --ring: #0EA5E9;
+  --ring: white;
 }
 
 .dark-theme {
@@ -31,7 +31,7 @@
   --card-foreground: #ECEDEE;
   --border: #374151;
   --input: #374151;
-  --primary: #0EA5E9;
+  --primary: #000000;
   --primary-foreground: #ffffff;
   --secondary: #374151;
   --secondary-foreground: #ECEDEE;
@@ -39,5 +39,5 @@
   --accent-foreground: #ECEDEE;
   --destructive: #FF0000;
   --destructive-foreground: #ffffff;
-  --ring: #0EA5E9;
+  --ring: white;
 }
