@@ -101,15 +101,15 @@ function AppContent() {
           <Tabs defaultValue="colors">
             <TabsTrigger value="colors">
    
-              Colors
+              COLORS
             </TabsTrigger>
             <TabsTrigger value="typography">
 
-              Typography
+              TYPOGRAPHY
             </TabsTrigger>
             <TabsTrigger value="components">
 
-              Components
+              COMPONENTS
             </TabsTrigger>
             <TabsContent value="colors" >
               <div className="color-grid">
